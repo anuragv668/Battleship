@@ -1,0 +1,27 @@
+{
+  "name": "battleship",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/anuragv668/Battleship#readme",
+  "bugs": {
+    "url": "https://github.com/anuragv668/Battleship/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuragv668/Battleship.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch *.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.28.0",
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "babel-jest": "^30.0.4",
+    "jest": "^30.0.4"
+  }
+}
