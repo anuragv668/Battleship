@@ -1,3 +1,5 @@
+"use strict";
+
 const ship = (length) => {
   let timesHit = 0;
   let sunk = false;
@@ -18,3 +20,7 @@ const ship = (length) => {
     isSunk
   };
 };
+
+module.exports = {
+  ship
+}
