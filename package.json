@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts":{
-    "test": "jest --watch *.js"
+    "test": "jest --watch"
   },
   "homepage": "https://github.com/anuragv668/Battleship#readme",
   "bugs": {
@@ -15,7 +15,6 @@
   },
   "license": "ISC",
   "author": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "jest --watch *.js"

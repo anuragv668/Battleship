@@ -1,11 +1,12 @@
 "use strict";
 
-const ship = (length) => {
+const ship = (num) => {
+  const length = num;
   let timesHit = 0;
   let sunk = false;
   
   const hit = () => {
-    timesHit++;
+    ++timesHit;
   }
 
   const isSunk = () => {
@@ -16,6 +17,13 @@ const ship = (length) => {
   }
 
   return {
+    length,
+    get timesHit() {
+      return timesHit;
+    },
+    get sunk() {
+      return sunk;
+    },
     hit,
     isSunk
   };
