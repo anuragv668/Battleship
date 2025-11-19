@@ -1,6 +1,6 @@
 "use strict";
 
-const ship = (num) => {
+const newShip = (num) => {
   const length = num;
   let timesHit = 0;
   let sunk = false;
@@ -29,6 +29,41 @@ const ship = (num) => {
   };
 };
 
+class gameboard {
+  constructor () {
+    this.arr = [];
+  };
+
+  createShip (num, ...coordinates) {
+    if (num != coordinates.length) {
+      throw new Error(`Invalid coordinates provided.`);
+    }
+    const ship = newShip(num);
+
+    coordinates.forEach((coordinate) => {
+      if (!Array.isArray(coordinate) || coordinate.length > 2) {
+        throw new Error(`Invalid coordinate ${coordinate} must be array an like [x, y].`);
+      }
+
+      let [x, y] = coordinate;
+
+      if (this.arr[x] && this.arr[x][y]) {
+        throw new Error(`cell [${x}, ${y}] already ocuppied by a ship.`);
+      }
+
+      if (!this.arr[x]) {
+        this.arr[x] = [];
+      }
+
+      this.arr[x][y] = ship;
+
+    })
+
+    return ship;
+  }
+}
+
 module.exports = {
-  ship
+  newShip,
+  gameboard
 }
