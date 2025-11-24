@@ -16,6 +16,11 @@ test("gameboard", () => {
   gameboard.createShip(2, [6, 1], [6, 2]);
   expect(gameboard.arr[6][1].length).toBe(2);
   expect(gameboard.arr[6][2].length).toBe(2);
+  expect(gameboard.arr[6][1].timesHit).toBe(0);
+  expect(gameboard.receiveAttack([6, 1])).toBe(true);
+  expect(gameboard.receiveAttack([6, 3])).toBe(false);
+  expect(gameboard.arr[6][1].timesHit).toBe(1);
+  expect(gameboard.arr[6][2].timesHit).toBe(1);
 });
 
 

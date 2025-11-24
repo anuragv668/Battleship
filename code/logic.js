@@ -34,7 +34,7 @@ class gameboard {
     this.arr = [];
   };
 
-  createShip (num, ...coordinates) {
+  createShip(num, ...coordinates) {
     if (num != coordinates.length) {
       throw new Error(`Invalid coordinates provided.`);
     }
@@ -45,7 +45,7 @@ class gameboard {
         throw new Error(`Invalid coordinate ${coordinate} must be array an like [x, y].`);
       }
 
-      let [x, y] = coordinate;
+      const [x, y] = coordinate;
 
       if (this.arr[x] && this.arr[x][y]) {
         throw new Error(`cell [${x}, ${y}] already ocuppied by a ship.`);
@@ -60,6 +60,18 @@ class gameboard {
     })
 
     return ship;
+  }
+  missedAttacks = 0;
+  receiveAttack(arr) {
+    const [x, y] = arr;
+    let hitState = false;
+    if (this.arr[x][y]) {
+      hitState = true;
+      this.arr[x][y].hit();
+      return hitState;
+    }
+    this.missedAttacks++;
+    return hitState;
   }
 }
 
