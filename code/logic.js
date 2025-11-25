@@ -33,7 +33,7 @@ class gameboard {
   constructor () {
     this.arr = [];
   };
-
+  ships = [];
   createShip(num, ...coordinates) {
     if (num != coordinates.length) {
       throw new Error(`Invalid coordinates provided.`);
@@ -58,7 +58,7 @@ class gameboard {
       this.arr[x][y] = ship;
 
     })
-
+    this.ships.push(ship);
     return ship;
   }
   missedAttacks = 0;
@@ -73,6 +73,25 @@ class gameboard {
     this.missedAttacks++;
     return hitState;
   }
+  
+  
+  allSunk() {
+    return this.ships.every(ship => ship.isSunk());
+  }
+
+  // allSunk() {
+  //   let state = false;
+  //   let nSunk = 0;
+  //   this.ships.forEach((ship) => {
+  //     if (ship.isSunk() == true) {
+  //       nSunk++;
+  //     }
+  //   })
+  //   if (this.ships.length == nSunk) {
+  //     state = true;
+  //   }
+  //   return state;
+  // }
 }
 
 module.exports = {
