@@ -29,4 +29,14 @@ test("gameboard", () => {
   expect(gameboard.allSunk()).toBe(true);
 });
 
+test("player", () => {
+  const player = new functions.Player;
+  expect(Object.getPrototypeOf(player).constructor.name).toBe('Player');
+  expect(Object.getPrototypeOf(player.gameboard).constructor.name).toBe('gameboard');
+});
 
+test("Computer", () => {
+  const computer = new functions.Computer;
+  expect(Object.getPrototypeOf(computer).constructor.name).toBe('Computer');
+  expect(Object.getPrototypeOf(Object.getPrototypeOf(computer)).constructor.name).toBe('Player');
+});

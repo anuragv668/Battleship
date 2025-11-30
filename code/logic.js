@@ -79,22 +79,23 @@ class gameboard {
     return this.ships.every(ship => ship.isSunk());
   }
 
-  // allSunk() {
-  //   let state = false;
-  //   let nSunk = 0;
-  //   this.ships.forEach((ship) => {
-  //     if (ship.isSunk() == true) {
-  //       nSunk++;
-  //     }
-  //   })
-  //   if (this.ships.length == nSunk) {
-  //     state = true;
-  //   }
-  //   return state;
-  // }
+ }
+
+class Player {
+  constructor() {
+    this.gameboard = new gameboard;
+  }
+}
+
+class Computer extends Player {
+  constructor() {
+    super();
+  }
 }
 
 module.exports = {
   newShip,
-  gameboard
+  gameboard,
+  Player,
+  Computer
 }
