@@ -2,8 +2,10 @@
   "name": "battleship",
   "version": "1.0.0",
   "description": "",
-  "scripts":{
-    "test": "jest --watch"
+  "scripts": {
+    "test": "jest --watch *.js",
+    "start": "webpack serve --open",
+    "build": "webpack"
   },
   "homepage": "https://github.com/anuragv668/Battleship#readme",
   "bugs": {
@@ -16,14 +18,19 @@
   "license": "ISC",
   "author": "",
   "main": "index.js",
-  "scripts": {
-    "test": "jest --watch *.js"
-  },
   "devDependencies": {
     "@babel/cli": "^7.28.0",
     "@babel/core": "^7.28.0",
     "@babel/preset-env": "^7.28.0",
     "babel-jest": "^30.0.4",
     "jest": "^30.0.4"
+  },
+  "dependencies": {
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.5",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.103.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   }
 }

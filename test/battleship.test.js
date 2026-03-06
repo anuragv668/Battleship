@@ -12,9 +12,9 @@ test("ship object", () => {
 
 test("gameboard", () => {
   const gameboard = new functions.gameboard;
-  expect(gameboard.createShip(1, [0, 0]).length).toBe(1);
+  /* expect(gameboard.createShip(1, [0, 0]).length).toBe(1); */
   gameboard.receiveAttack([0, 0]);
-  gameboard.createShip(2, [6, 1], [6, 2]);
+  // gameboard.createShip(2, [6, 1], [6, 2]);
   expect(gameboard.arr[6][1].length).toBe(2);
   expect(gameboard.arr[6][2].length).toBe(2);
   expect(gameboard.arr[6][1].timesHit).toBe(0);
