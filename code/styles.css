@@ -37,15 +37,10 @@ h3 {
   height: 400px;
   width: 400px;
   border: 1px solid black;
-}
-
-.boardGrid {
-  height: 500px;
-  width: 500px;
   display: grid;
   grid: repeat(auto-fit, minmax(10px, 1fr));
-  border: 1px solid black;
 }
+
 .horizontalArr .verticalArr {
   border: 1px solid black;
 }

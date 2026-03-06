@@ -1,30 +1,40 @@
 import './styles.css';
 import * as logic from './logic.js';
 
-// const body = document.querySelector('body');
-// const player = document.createElement('div');
-// player.classList.add('boardGrid');
-// body.appendChild(player);
-// const playerBoard = new logic.Player();
-// playerBoard.gameboard.createShip(2, [1, 2], [1, 3]);
-// playerBoard.gameboard.createShip(2, [5, 5], [5, 4]);
+const body = document.querySelector('body');
 
+const player = document.querySelector('.player > .board');
+const playerLogic = new logic.Player();
+playerLogic.gameboard.placeShip(2, [3,3], false);
 
+const computer = document.querySelector('.computer > .board');
+const computerLogic = new logic.Computer();
+computerLogic.gameboard.placeShip(2, [3,3], false);
 
-// for (let i = 0; i < 10; i++) {
-//   const row = document.createElement('div');
-//   row.classList = 'horizontalArr';
-//   for (let j = 0; j < 10; j++) {
-//     const cell = document.createElement('div');
-//     cell.classList = 'verticalArr';
-//     const cellData = playerBoard.gameboard.arr[i][j];
-//     if (cellData && cellData.length) {
-//       cell.textContent = cellData.length;
-//     } else {
-//       cell.textContent = 0;
-//     }
-//     row.appendChild(cell);
-//   }
-//   player.appendChild(row);
+// const createCell = () => {
+//   null;  pending progress
 // }
+
+
+const populateBoard = (selector, data) => {
+  for (let i = 0; i < 10; i++) {
+    const row = document.createElement('div');
+    row.classList = 'horizontalArr';
+    for (let j = 0; j < 10; j++) {
+      const cell = document.createElement('div');
+      cell.classList = 'verticalArr';
+      const cellData = data.gameboard.arr[i][j];
+      if (cellData && cellData.length) {
+        cell.textContent = cellData.length;
+      } else {
+        cell.textContent = 0;
+      }
+      row.appendChild(cell);
+    }
+    selector.appendChild(row);
+  }
+};
+
+populateBoard(player, playerLogic);
+populateBoard(computer, computerLogic);
 
