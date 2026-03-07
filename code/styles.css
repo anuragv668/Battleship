@@ -45,6 +45,12 @@ h3 {
   border: 1px solid black;
 }
 
+.verticalArr {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
 .horizontalArr {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));

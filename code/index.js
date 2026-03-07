@@ -5,12 +5,11 @@ const body = document.querySelector('body');
 
 const player = document.querySelector('.player > .board');
 const playerLogic = new logic.Player();
-playerLogic.gameboard.placeShip(2, [3,3], false);
+playerLogic.gameboard.randomPlaceShip();
 
 const computer = document.querySelector('.computer > .board');
 const computerLogic = new logic.Computer();
-computerLogic.gameboard.placeShip(2, [3,3], false);
-
+computerLogic.gameboard.randomPlaceShip();
 // const createCell = () => {
 //   null;  pending progress
 // }

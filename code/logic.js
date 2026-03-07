@@ -39,8 +39,9 @@ class gameboard {
       }
     }
   };
-  ships = [];
 
+  // ---code kept here is old method used for ship placement
+  
   // createShip(num, ...coordinates) {
   //   if (num != coordinates.length) {
   //     throw new Error(`Invalid coordinates provided.`);
@@ -63,6 +64,7 @@ class gameboard {
   //   return ship;
   // }
 
+  ships = [];
   placeShip(num, coordinate, horizontal = true) {
     const ship = newShip(num);
     const [x, y] = coordinate;
@@ -74,8 +76,8 @@ class gameboard {
       if (
         newX < 0 ||
         newY < 0 ||
-        newX > this.arr.length ||
-        newY > this.arr.length
+        newX >= this.arr.length ||
+        newY >= this.arr.length
       ) {
         throw new Error("ship out of bounds");
       }
@@ -103,6 +105,18 @@ class gameboard {
     }
     this.missedAttacks++;
     return hitState;
+  }
+  
+  randomPlaceShip() {
+    let standardShips = [5, 4, 3, 3, 2];
+    for (let i = 0; i < standardShips.length; i++) {
+      try {
+        this.placeShip(standardShips[i],[Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)],
+          Math.floor(Math.random() * 2) == 1);
+      } catch(error) {
+        i--; 
+      }
+    }
   }
 
   allSunk() {
