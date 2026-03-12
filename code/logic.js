@@ -1,6 +1,6 @@
 "use strict";
 
-const newShip = (num) => {
+const Ship = (num) => {
   const length = num;
   let timesHit = 0;
   let sunk = false;
@@ -29,7 +29,7 @@ const newShip = (num) => {
   };
 };
 
-class gameboard {
+class Gameboard {
   constructor (matrix = 10) {
     this.arr = [];
     for (let i = 0; i < matrix; i++) {
@@ -40,33 +40,9 @@ class gameboard {
     }
   };
 
-  // ---code kept here is old method used for ship placement
-  
-  // createShip(num, ...coordinates) {
-  //   if (num != coordinates.length) {
-  //     throw new Error(`Invalid coordinates provided.`);
-  //   }
-  //   const ship = newShip(num);
-  //
-  //   coordinates.forEach((coordinate) => {
-  //     if (!Array.isArray(coordinate) || coordinate.length > 2) {
-  //       throw new Error(`Invalid coordinate ${coordinate} must be array an like [x, y].`);
-  //     }
-  //
-  //     const [x, y] = coordinate;
-  //
-  //     if (this.arr[x][y]) {
-  //       throw new Error(`cell [${x}, ${y}] already ocuppied by a ship.`);
-  //     }
-  //     this.arr[x][y] = ship;
-  //   });
-  //   this.ships.push(ship);
-  //   return ship;
-  // }
-
   ships = [];
   placeShip(num, coordinate, horizontal = true) {
-    const ship = newShip(num);
+    const ship = Ship(num);
     const [x, y] = coordinate;
     
     for (let i = 0; i < num; i++) {
@@ -126,7 +102,7 @@ class gameboard {
 
 class Player {
   constructor() {
-    this.gameboard = new gameboard;
+    this.gameboard = new Gameboard;
   }
 }
 
@@ -134,12 +110,24 @@ class Computer extends Player {
   constructor() {
     super();
   }
+  arr = Array.from({length: 10}, () => {
+    return Array(10).fill(false);
+  });
+
+  attack () {
+    let coordinates = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+    while(this.arr[coordinates[0]][coordinates[1]]) {
+      coordinates = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+    }
+    this.arr[coordinates[0]][coordinates[1]] = true;
+    return coordinates;
+  }
 }
 
 export {
    // uncomment for running tests 
-  newShip,
-  gameboard,
+  Ship,
+  Gameboard,
   Player,
   Computer
 }

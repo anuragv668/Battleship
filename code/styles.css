@@ -23,7 +23,32 @@ section {
   justify-content: space-around;
   align-items: center;
 }
-.player .computer {
+
+.start {
+  border: 5px solid black;
+  width: 90%;
+  height: 90%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.startButton {
+  font-size: 3rem;
+  padding: 10px;
+  border: 5px solid black;
+  box-shadow: 5px 5px 5px grey;
+  cursor: pointer;
+}
+
+.startButton:hover {
+  box-shadow: none;
+}
+
+.player,
+.computer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,4 +79,17 @@ h3 {
 .horizontalArr {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+}
+
+.result {
+  position: absolute;
+  height: 300px;
+  width: 500px;
+  border: 5px solid black;
+  top: auto;
+  left: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  display: none;
 }
